@@ -1,11 +1,12 @@
 // backend/db.js
+require('dotenv').config();
 const mysql = require('mysql2');
 
 const connection = mysql.createConnection({
-  host: 'gastos-db.cvu0gswccfc5.us-east-2.rds.amazonaws.com', 
-  user: 'admin',
-  password: 'HJA071017.',
-  database: 'gastos_db'
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME
 });
 
 connection.connect((err) => {
